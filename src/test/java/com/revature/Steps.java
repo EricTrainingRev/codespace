@@ -36,9 +36,7 @@ public class Steps {
 
     @Then("The user should get an alert with the numbers added together")
     public void the_user_should_get_an_alert_with_the_numbers_added_together() {
-        ITTestRunner.wait.until(ExpectedConditions.alertIsPresent());
-        String result = ITTestRunner.driver.switchTo().alert().getText();
-        ITTestRunner.driver.switchTo().alert().accept();
+        String result = ITTestRunner.driver.findElement(By.id("result")).getText();
         Assert.assertEquals("3", result);
     }
 
@@ -59,9 +57,7 @@ public class Steps {
 
     @Then("The user should get an alert with the numbers subtracted")
     public void the_user_should_get_an_alert_with_the_numbers_subtracted() {
-        ITTestRunner.wait.until(ExpectedConditions.alertIsPresent());
-        String result = ITTestRunner.driver.switchTo().alert().getText();
-        ITTestRunner.driver.switchTo().alert().accept();
+        String result = ITTestRunner.driver.findElement(By.id("result")).getText();
         Assert.assertEquals("3", result);
     }
 
