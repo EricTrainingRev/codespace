@@ -16,7 +16,7 @@ public class Steps {
 
     @Given("The user is on the calculator home page")
     public void the_user_is_on_the_calculator_home_page() {
-        ITTestRunner.driver.get("file:/workspaces/codespace/src/main/resources/Index.html");
+        ITTestRunner.driver.get("file:/workspaces/codespace/Index.html");
     }
 
     /*
