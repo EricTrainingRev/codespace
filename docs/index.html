@@ -9,8 +9,8 @@
 <body>
     <input type="number" id="numOne">
     <input type="number" id="numTwo">
-    <button id="add">add</button>
-    <button id="subtract">subtract</button>
+    <button id="add" onclick="addition()">add</button>
+    <button id="subtract" onclick="subtraction()">subtract</button>
     <p id="result"></p>
 </body>
 <script>
@@ -21,7 +21,7 @@
     const result = document.getElementById("result");
 
     async function addition(){
-        const httpResponse = await fetch(`http://erictrainingrev-psychic-system-6qg4wx66794f547x-8080.preview.app.github.dev/add/${numOne.value}/${numTwo.value}`);
+        const httpResponse = await fetch(`http://localhost:8080/add/${numOne.value}/${numTwo.value}`);
         if(httpResponse.status === 200){
             const body = await httpResponse.text();
             result.textContent = body;
@@ -29,8 +29,8 @@
             result.textContent = "Something went wrong"
         }
     }
-    async function subtrcation(){
-        const httpResponse = await fetch(`http://erictrainingrev-psychic-system-6qg4wx66794f547x-8080.preview.app.github.dev/subtract/${numOne.value}/${numTwo.value}`);
+    async function subtraction(){
+        const httpResponse = await fetch(`http://localhost:8080/subtract/${numOne.value}/${numTwo.value}`);
         if(httpResponse.status === 200){
             const body = await httpResponse.text();
             result.textContent = body;

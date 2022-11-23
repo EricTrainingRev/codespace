@@ -8,6 +8,11 @@ public class Playground {
     public static void main(String[] args) {
         Javalin app = Javalin.create(config ->{
             config.plugins.enableDevLogging();
+            config.plugins.enableCors(cors -> {
+                cors.add(it -> {
+                    it.anyHost();
+                });
+            });
         });
 
         app.get("/add/{numOne}/{numTwo}",ctx -> {
