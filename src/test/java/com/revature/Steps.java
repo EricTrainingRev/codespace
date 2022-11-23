@@ -36,6 +36,7 @@ public class Steps {
 
     @Then("The user should get an alert with the numbers added together")
     public void the_user_should_get_an_alert_with_the_numbers_added_together() {
+        ITTestRunner.wait.until(ExpectedConditions.textToBe(By.id("result"), "3"));
         String result = ITTestRunner.driver.findElement(By.id("result")).getText();
         Assert.assertEquals("3", result);
     }
@@ -46,8 +47,8 @@ public class Steps {
 
     @When("The user provides two numbers to subtract")
     public void the_user_provides_two_numbers_to_subtract() {
-        ITTestRunner.driver.findElement(By.id("numOne")).sendKeys("6");
-        ITTestRunner.driver.findElement(By.id("numTwo")).sendKeys("3");
+        ITTestRunner.driver.findElement(By.id("numOne")).sendKeys("8");
+        ITTestRunner.driver.findElement(By.id("numTwo")).sendKeys("4");
     }
 
     @When("The user clicks the subtract button")
@@ -57,8 +58,9 @@ public class Steps {
 
     @Then("The user should get an alert with the numbers subtracted")
     public void the_user_should_get_an_alert_with_the_numbers_subtracted() {
+        ITTestRunner.wait.until(ExpectedConditions.textToBe(By.id("result"), "4"));
         String result = ITTestRunner.driver.findElement(By.id("result")).getText();
-        Assert.assertEquals("3", result);
+        Assert.assertEquals("4", result);
     }
 
 }
