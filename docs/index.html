@@ -11,29 +11,31 @@
     <input type="number" id="numTwo">
     <button id="add">add</button>
     <button id="subtract">subtract</button>
+    <p id="result"></p>
 </body>
 <script>
     const add = document.getElementById("add");
     const subtract = document.getElementById("subtract");
     const numOne = document.getElementById("numOne");
     const numTwo = document.getElementById("numTwo");
+    const result = document.getElementById("result");
 
     async function addition(){
         const httpResponse = await fetch(`http://erictrainingrev-psychic-system-6qg4wx66794f547x-8080.preview.app.github.dev/add/${numOne.value}/${numTwo.value}`);
         if(httpResponse.status === 200){
             const body = await httpResponse.text();
-            alert(body);
+            result.textContent = body;
         } else {
-            alert("Something went wrong")
+            result.textContent = "Something went wrong"
         }
     }
     async function subtrcation(){
         const httpResponse = await fetch(`http://erictrainingrev-psychic-system-6qg4wx66794f547x-8080.preview.app.github.dev/subtract/${numOne.value}/${numTwo.value}`);
         if(httpResponse.status === 200){
             const body = await httpResponse.text();
-            alert(body);
+            result.textContent = body;
         } else {
-            alert("Something went wrong")
+            result.textContent = "Something went wrong"
         }
     }
 </script>
