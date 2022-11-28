@@ -29,6 +29,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Install Firefox and Run all Tests with Maven
-      run: sudo apt install -y firefox    
-      run: mvn clean verify
+    - name: Run Unit Tests with Maven
+      # run: sudo apt install -y firefox    
+      run: mvn clean test
