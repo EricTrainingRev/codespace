@@ -26,6 +26,7 @@ public class ITTestRunner {
         options = new FirefoxOptions();
         options.addArguments("-headless");
         driver = new FirefoxDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
     }
 

@@ -1,8 +1,13 @@
 package com.revature;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.io.FileHandler;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,7 +21,7 @@ public class Steps {
 
     @Given("The user is on the calculator home page")
     public void the_user_is_on_the_calculator_home_page() {
-        ITTestRunner.driver.get("https://erictrainingrev.github.io/codespace/");
+        ITTestRunner.driver.get("https://erictrainingrev-curly-space-fiesta-5jqx576645qcrp4-5500.preview.app.github.dev/docs/index.html");
     }
 
     /*
@@ -36,8 +41,13 @@ public class Steps {
 
     @Then("The user should get an alert with the numbers added together")
     public void the_user_should_get_an_alert_with_the_numbers_added_together() {
-        ITTestRunner.wait.until(ExpectedConditions.textToBe(By.id("result"), "3"));
         String result = ITTestRunner.driver.findElement(By.id("result")).getText();
+        File scrFile = ((TakesScreenshot)ITTestRunner.driver).getScreenshotAs(OutputType.FILE);
+        try{
+            FileHandler.copy(scrFile, new File("add_screenshot.png"));
+        }catch (IOException e){
+            Assert.fail("creating an add screenshot failed");
+        }
         Assert.assertEquals("3", result);
     }
 
@@ -58,8 +68,13 @@ public class Steps {
 
     @Then("The user should get an alert with the numbers subtracted")
     public void the_user_should_get_an_alert_with_the_numbers_subtracted() {
-        ITTestRunner.wait.until(ExpectedConditions.textToBe(By.id("result"), "4"));
         String result = ITTestRunner.driver.findElement(By.id("result")).getText();
+        File scrFile = ((TakesScreenshot)ITTestRunner.driver).getScreenshotAs(OutputType.FILE);
+        try{
+            FileHandler.copy(scrFile, new File("subtract_screenshot.png"));
+        }catch (IOException e){
+            Assert.fail("creating a subtract screenshot failed");
+        }
         Assert.assertEquals("4", result);
     }
 

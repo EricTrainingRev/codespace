@@ -21,7 +21,7 @@
     const result = document.getElementById("result");
 
     async function addition(){
-        const httpResponse = await fetch(`https://erictrainingrev-fictional-winner-qjqp65rr6792xg5p-8080.preview.app.github.dev/add/${numOne.value}/${numTwo.value}`);
+        const httpResponse = await fetch(`https://erictrainingrev-curly-space-fiesta-5jqx576645qcrp4-8080.preview.app.github.dev/add/${numOne.value}/${numTwo.value}`);
         if(httpResponse.status === 200){
             const body = await httpResponse.text();
             result.textContent = body;
@@ -30,7 +30,7 @@
         }
     }
     async function subtraction(){
-        const httpResponse = await fetch(`https://erictrainingrev-fictional-winner-qjqp65rr6792xg5p-8080.preview.app.github.dev/subtract/${numOne.value}/${numTwo.value}`);
+        const httpResponse = await fetch(`https://erictrainingrev-curly-space-fiesta-5jqx576645qcrp4-8080.preview.app.github.dev/subtract/${numOne.value}/${numTwo.value}`);
         if(httpResponse.status === 200){
             const body = await httpResponse.text();
             result.textContent = body;
