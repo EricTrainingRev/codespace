@@ -23,6 +23,7 @@ public class ITTestRunner {
 
     @BeforeClass
     public static void setup(){
+        // System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver");
         options = new FirefoxOptions();
         options.addArguments("-headless");
         driver = new FirefoxDriver(options);
