@@ -21,6 +21,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: update vm
+      run: sudo apt upgrade -y
     - name: setup Firefox
       run: sudo apt install -y firefox
     - name: Set up JDK 11
