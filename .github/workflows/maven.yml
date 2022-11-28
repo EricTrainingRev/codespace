@@ -30,6 +30,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Install Firefox
-      run: sudo apt install -y firefox    
+      run: sudo apt install -y firefox 
+    - name: Install Gecko-Driver
+      run: sudo apt install -y firefox-geckodriver   
     - name: run tests
       run: mvn clean verify
