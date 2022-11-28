@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/com/revature/example.feature", glue = "com.revature")
@@ -23,7 +24,7 @@ public class ITTestRunner {
 
     @BeforeClass
     public static void setup(){
-        // System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver");
+        WebDriverManager.firefoxdriver().setup();
         options = new FirefoxOptions();
         options.addArguments("-headless");
         driver = new FirefoxDriver(options);
